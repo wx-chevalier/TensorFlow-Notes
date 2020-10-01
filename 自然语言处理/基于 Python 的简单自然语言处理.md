@@ -26,7 +26,7 @@ def fetch_data(self, subset='train', categories=None):
 
 然后在 Notebook 中交互查看数据格式：
 
-```
+```py
 # 实例化对象
 twp = TwentyNewsGroup()
 # 抓取数据
@@ -43,7 +43,7 @@ print("目标分类", "->",[ twenty_train.target_names[t] for t in twenty_train.
 
 接下来我们可以对语料集中的特征进行提取：
 
-```
+```py
 # 进行特征提取
 
 # 构建文档-词矩阵(Document-Term Matrix)
@@ -252,7 +252,7 @@ class Wiki(object):
 
 抓取完毕后，我们还需要用 OpenCC 转化为简体字。抓取完毕后我们可以使用结巴分词对生成的文本文件进行分词，代码参考[这里](https://parg.co/b4R)，我们直接使用 `python chinese_text_processor.py tokenize_file /output.txt` 直接执行该任务并且生成输出文件。获取分词之后的文件，我们可以将其转化为简单的词袋表示或者文档-词向量，详细代码参考[这里](https://parg.co/b4f)：
 
-```
+```py
 class CorpusProcessor:
     """
     语料集处理
@@ -315,111 +315,111 @@ class CorpusProcessor:
 
 我们也可以对分词之后的文档进行主题模型或者词向量提取，这里使用分词之后的文件就可以忽略中英文的差异：
 
-```
-    def topics_by_lda(self, tokenized_corpus_path, num_topics=20, num_words=10, max_lines=10000, split="\s+", max_df=100):
-        """
-        读入经过分词的文件并且对其进行 LDA 训练
-        Arguments:
-        tokenized_corpus_path -> string -- 经过分词的语料集地址
-        num_topics -> integer -- 主题数目
-        num_words -> integer -- 主题词数目
-        max_lines -> integer -- 每次读入的最大行数
-        split -> string -- 文档的词之间的分隔符
-        max_df -> integer -- 避免常用词，过滤超过该阈值的词
-        """
+```py
+def topics_by_lda(self, tokenized_corpus_path, num_topics=20, num_words=10, max_lines=10000, split="\s+", max_df=100):
+    """
+    读入经过分词的文件并且对其进行 LDA 训练
+    Arguments:
+    tokenized_corpus_path -> string -- 经过分词的语料集地址
+    num_topics -> integer -- 主题数目
+    num_words -> integer -- 主题词数目
+    max_lines -> integer -- 每次读入的最大行数
+    split -> string -- 文档的词之间的分隔符
+    max_df -> integer -- 避免常用词，过滤超过该阈值的词
+    """
 
-        # 存放所有语料集信息
-        corpus = []
+    # 存放所有语料集信息
+    corpus = []
 
-        with open(tokenized_corpus_path, 'r', encoding='utf-8') as tokenized_corpus:
+    with open(tokenized_corpus_path, 'r', encoding='utf-8') as tokenized_corpus:
 
-            flag = 0
+        flag = 0
 
-            for document in tokenized_corpus:
+        for document in tokenized_corpus:
 
-                # 判断是否读取了足够的行数
-                if(flag > max_lines):
-                    break
+            # 判断是否读取了足够的行数
+            if(flag > max_lines):
+                break
 
-                # 将读取到的内容添加到语料集中
-                corpus.append(re.split(split, document))
+            # 将读取到的内容添加到语料集中
+            corpus.append(re.split(split, document))
 
-                flag = flag + 1
+            flag = flag + 1
 
-        # 构建语料集的 BOW 表示
-        (vocab, DTM) = self.corpus2dtm(corpus, max_df=max_df)
+    # 构建语料集的 BOW 表示
+    (vocab, DTM) = self.corpus2dtm(corpus, max_df=max_df)
 
-        # 训练 LDA 模型
+    # 训练 LDA 模型
 
-        lda = LdaMulticore(
-            matutils.Sparse2Corpus(DTM, documents_columns=False),
-            num_topics=num_topics,
-            id2word=dict([(i, s) for i, s in enumerate(vocab)]),
-            workers=4
-        )
+    lda = LdaMulticore(
+        matutils.Sparse2Corpus(DTM, documents_columns=False),
+        num_topics=num_topics,
+        id2word=dict([(i, s) for i, s in enumerate(vocab)]),
+        workers=4
+    )
 
-        # 打印并且返回主题数据
-        topics = lda.show_topics(
-            num_topics=num_topics,
-            num_words=num_words,
-            formatted=False,
-            log=False)
+    # 打印并且返回主题数据
+    topics = lda.show_topics(
+        num_topics=num_topics,
+        num_words=num_words,
+        formatted=False,
+        log=False)
 
-        for ti, topic in enumerate(topics):
-            print("Topic", ti, ":", " ".join(word[0] for word in topic[1]))
+    for ti, topic in enumerate(topics):
+        print("Topic", ti, ":", " ".join(word[0] for word in topic[1]))
 ```
 
 该函数同样可以使用命令行直接调用，传入分词之后的文件。我们也可以对其语料集建立词向量，代码参考[这里](https://parg.co/b4N)；如果对于词向量基本使用尚不熟悉的同学可以参考[基于 Gensim 的 Word2Vec 实践](https://zhuanlan.zhihu.com/p/24961011)：
 
-```
-    def wv_train(self, tokenized_text_path, output_model_path='./wv_model.bin'):
-        """
-        对于文本进行词向量训练，并将输出的词向量保存
-        """
+```py
+def wv_train(self, tokenized_text_path, output_model_path='./wv_model.bin'):
+    """
+    对于文本进行词向量训练，并将输出的词向量保存
+    """
 
-        sentences = word2vec.Text8Corpus(tokenized_text_path)
+    sentences = word2vec.Text8Corpus(tokenized_text_path)
 
-        # 进行模型训练
-        model = word2vec.Word2Vec(sentences, size=250)
+    # 进行模型训练
+    model = word2vec.Word2Vec(sentences, size=250)
 
-        # 保存模型
-        model.save(output_model_path)
+    # 保存模型
+    model.save(output_model_path)
 
-    def wv_visualize(self, model_path, word=["中国", "航空"]):
-        """
-        根据输入的词搜索邻近词然后可视化展示
-        参数：
-            model_path: Word2Vec 模型地址
-        """
+def wv_visualize(self, model_path, word=["中国", "航空"]):
+    """
+    根据输入的词搜索邻近词然后可视化展示
+    参数：
+        model_path: Word2Vec 模型地址
+    """
 
-        # 加载模型
-        model = word2vec.Word2Vec.load(model_path)
+    # 加载模型
+    model = word2vec.Word2Vec.load(model_path)
 
-        # 寻找出最相似的多个词
-        words = [wp[0] for wp in model.most_similar(word, topn=20)]
+    # 寻找出最相似的多个词
+    words = [wp[0] for wp in model.most_similar(word, topn=20)]
 
-        # 提取出词对应的词向量
-        wordsInVector = [model[word] for word in words]
+    # 提取出词对应的词向量
+    wordsInVector = [model[word] for word in words]
 
-        # 进行 PCA 降维
-        pca = PCA(n_components=2)
-        pca.fit(wordsInVector)
-        X = pca.transform(wordsInVector)
+    # 进行 PCA 降维
+    pca = PCA(n_components=2)
+    pca.fit(wordsInVector)
+    X = pca.transform(wordsInVector)
 
-        # 绘制图形
-        xs = X[:, 0]
-        ys = X[:, 1]
+    # 绘制图形
+    xs = X[:, 0]
+    ys = X[:, 1]
 
-        plt.figure(figsize=(12, 8))
-        plt.scatter(xs, ys, marker='o')
+    plt.figure(figsize=(12, 8))
+    plt.scatter(xs, ys, marker='o')
 
-        # 遍历所有的词添加点注释
-        for i, w in enumerate(words):
-            plt.annotate(
-                w,
-                xy=(xs[i], ys[i]), xytext=(6, 6),
-                textcoords='offset points', ha='left', va='top',
-                **dict(fontsize=10)
-            )
-        plt.show()
+    # 遍历所有的词添加点注释
+    for i, w in enumerate(words):
+        plt.annotate(
+            w,
+            xy=(xs[i], ys[i]), xytext=(6, 6),
+            textcoords='offset points', ha='left', va='top',
+            **dict(fontsize=10)
+        )
+    plt.show()
 ```
