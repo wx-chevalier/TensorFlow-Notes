@@ -1,6 +1,6 @@
-# 数据处理
+# 张量与 AutoGraph
 
-首先，我们导入 tensorflow。由于名称有点长，我们经常使用短别名 tf 导入它。
+首先，我们导入 TensorFlow。由于名称有点长，我们经常使用短别名 tf 导入它。
 
 ```py
 import tensorflow as tf
