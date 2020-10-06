@@ -1,9 +1,5 @@
 # TensorFire：浏览器端的 TensorFlow
 
-编译：王下邀月熊
-
----
-
 ## 摘要：
 
 TensorFire 是基于 WebGL 的运行在浏览器内的高性能神经网络框架，其执行速度甚至可以快于原生的 TensorFlow。

@@ -1,12 +1,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/wx-chevalier/AI-Series">
+  <a href="https://github.com/wx-chevalier/TensorFlow-Series">
     <img src="header.svg" alt="Logo" style="width: 100vw;height: 400px" />
   </a>
 
   <p align="center">
-    <a href="https://github.com/wx-chevalier/AI-Series"><strong>AI Series»</strong></a>
+    <a href="https://github.com/wx-chevalier/AI-Series"><strong>TensorFlow Series»</strong></a>
     <br />
     <br />
     <a href="https://github.com/wx-chevalier/ai-notebooks">Note Books</a>
@@ -22,7 +22,7 @@
 
 # TensorFlow
 
-Google 最近开源了机器学习框架 TensorFlow，在很短的时间内就在 Github 上获得了超过的 10K 的赞，并且在 AI 研究者之间引发了很大的反响。
+Google 最近开源了机器学习框架 TensorFlow，在很短的时间内就在 Github 上获得了超过的 10K 的赞，并且在 AI 研究者之间引发了很大的反响。本篇主要基于 TensorFlow 2.0 版本，包含理论与实践（Notebook）等多维度内容，建议阅读本篇之前先浏览 []() 以了解如何搭建开发/实验环境。
 
 # Why do I care?
 
