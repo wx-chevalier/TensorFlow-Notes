@@ -14,4 +14,4 @@ TensorFlow 训练好的模型以 TensorFlow 原生方式保存成 protobuf 文�
 - 启动 tensorflow serving 服务。
 - 向 API 服务发送请求，获取预测结果。
 
-详细的演示请参阅 []()
+详细的演示请参阅 [tf_serving.ipynb](./tf_serving.ipynb)

@@ -24,6 +24,8 @@
 
 Google 最近开源了机器学习框架 TensorFlow，在很短的时间内就在 Github 上获得了超过的 10K 的赞，并且在 AI 研究者之间引发了很大的反响。本篇主要基于 TensorFlow 2.0 版本，包含理论与实践（Notebook）等多维度内容，建议阅读本篇之前先浏览 []() 以了解如何搭建开发/实验环境。
 
+![TensorFlow Logo](https://s1.ax1x.com/2020/10/07/0amtcF.png)
+
 # Why do I care?
 
 在了解 TensorFlow 之前，我们首先要搞明白一个问题。作为一个专业的数据科学家，为什么在有了大量现存的数据科学或者机器学习的工具(譬如 R,SciKit Learn)之后，还需要关注其他的机器学习框架，笔者窃以为有以下两点：

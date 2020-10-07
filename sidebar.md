@@ -1,9 +1,3 @@
-  - [models](/models/README.md)
-    - nlp
-      - [language_modeling](/models/nlp/language_modeling/README.md)
-        
-      - [named_entity_recognition](/models/nlp/named_entity_recognition/README.md)
-        
   - 增强框架
     - [Keras](/增强框架/Keras/README.md)
       
@@ -22,4 +16,5 @@
   - [模型构建](/模型构建/README.md)
     - [特征列](/模型构建/特征列.md)
   - [模型训练](/模型训练/README.md)
-    - [单 GPU 设置](/模型训练/单%20GPU%20设置.md)
+    - GPU
+      - [单 GPU 设置](/模型训练/GPU/单%20GPU%20设置.md)
