@@ -14,6 +14,7 @@
   - [张量与 AutoGraph](/张量与%20AutoGraph/README.md)
     - [AutoGraph 编码规范](/张量与%20AutoGraph/AutoGraph%20编码规范.md)
   - [模型构建](/模型构建/README.md)
+    - [激活函数](/模型构建/激活函数.md)
     - [特征列](/模型构建/特征列.md)
   - [模型训练](/模型训练/README.md)
     - GPU
