@@ -23,4 +23,5 @@
     - [评估指标](/模型构建/评估指标.md)
   - [模型训练](/模型训练/README.md)
     - [GPU](/模型训练/GPU/README.md)
-      - [单 GPU 设置](/模型训练/GPU/单%20GPU%20设置.md)
+      - [GPU 设置](/模型训练/GPU/GPU%20设置.md)
+      - [TPU 设置](/模型训练/GPU/TPU%20设置.md)
