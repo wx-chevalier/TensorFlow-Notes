@@ -65,7 +65,7 @@ if gpus:
         print(e)
 ```
 
-## 案例-MirroredStrategy
+## 案例：MirroredStrategy
 
 - 训练开始前，该策略在所有 N 个计算设备上均各复制一份完整的模型；
 - 每次训练传入一个批次的数据时，将数据分成 N 份，分别传入 N 个计算设备（即数据并行）；
