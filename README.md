@@ -7,12 +7,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/wx-chevalier/TensorFlow-Series">
+  <a href="https://github.com/wx-chevalier/TensorFlow-Notes">
     <img src="https://assets.ng-tech.icu/item/header.svg" alt="Logo" style="width: 100vw;height: 400px" />
   </a>
 
   <p align="center">
-    <a href="https://ng-tech.icu/books/TensorFlow-Series"><strong>在线阅读 >> </strong></a>
+    <a href="https://ng-tech.icu/books/TensorFlow-Notes"><strong>在线阅读 >> </strong></a>
     <br />
     <br />
     <a href="https://github.com/wx-chevalier">代码案例</a>
@@ -70,13 +70,13 @@ Contributions are what make the open source community such an amazing place to b
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/TensorFlow-Series.svg?style=flat-square
-[contributors-url]: https://github.com/wx-chevalier/TensorFlow-Series/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/TensorFlow-Series.svg?style=flat-square
-[forks-url]: https://github.com/wx-chevalier/TensorFlow-Series/network/members
-[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/TensorFlow-Series.svg?style=flat-square
-[stars-url]: https://github.com/wx-chevalier/TensorFlow-Series/stargazers
-[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/TensorFlow-Series.svg?style=flat-square
-[issues-url]: https://github.com/wx-chevalier/TensorFlow-Series/issues
-[license-shield]: https://img.shields.io/github/license/wx-chevalier/TensorFlow-Series.svg?style=flat-square
-[license-url]: https://github.com/wx-chevalier/TensorFlow-Series/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/TensorFlow-Notes.svg?style=flat-square
+[contributors-url]: https://github.com/wx-chevalier/TensorFlow-Notes/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/TensorFlow-Notes.svg?style=flat-square
+[forks-url]: https://github.com/wx-chevalier/TensorFlow-Notes/network/members
+[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/TensorFlow-Notes.svg?style=flat-square
+[stars-url]: https://github.com/wx-chevalier/TensorFlow-Notes/stargazers
+[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/TensorFlow-Notes.svg?style=flat-square
+[issues-url]: https://github.com/wx-chevalier/TensorFlow-Notes/issues
+[license-shield]: https://img.shields.io/github/license/wx-chevalier/TensorFlow-Notes.svg?style=flat-square
+[license-url]: https://github.com/wx-chevalier/TensorFlow-Notes/blob/master/LICENSE.txt
