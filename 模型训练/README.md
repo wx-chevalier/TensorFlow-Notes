@@ -97,12 +97,6 @@ def create_model():
     model.add(layers.Dense(CAT_NUM,activation = "softmax"))
     return(model)
 
-def compile_model(model):
-    model.compile(optimizer=optimizers.Nadam(),
-                loss=losses.SparseCategoricalCrossentropy(),
-                metrics=[metrics.SparseCategoricalAccuracy(),metrics.SparseTopKCategoricalAccuracy(5)])
-    return(model)
-
 model = create_model()
 model.summary()
 model = compile_model(model)
@@ -143,15 +137,6 @@ tf.keras.backend.clear_session()
 def create_model():
 
     model = models.Sequential()
-
-    model.add(layers.Embedding(MAX_WORDS,7,input_length=MAX_LEN))
-    model.add(layers.Conv1D(filters = 64,kernel_size = 5,activation = "relu"))
-    model.add(layers.MaxPool1D(2))
-    model.add(layers.Conv1D(filters = 32,kernel_size = 3,activation = "relu"))
-    model.add(layers.MaxPool1D(2))
-    model.add(layers.Flatten())
-    model.add(layers.Dense(CAT_NUM,activation = "softmax"))
-    return(model)
 
 model = create_model()
 model.summary()

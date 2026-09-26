@@ -125,10 +125,6 @@ outputs = layers.Dense(1,activation = "sigmoid")(concat)
 
 model = models.Model(inputs = inputs,outputs = outputs)
 
-model.compile(optimizer='Nadam',
-            loss='binary_crossentropy',
-            metrics=['accuracy',"AUC"])
-
 model.summary()
 ```
 
